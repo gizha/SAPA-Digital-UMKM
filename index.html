@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>SAPA Digital | Desa Wiyu</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>SAPA Digital</h1>
+    <p>Sarana Pendampingan UMKM Digital Desa Wiyu</p>
+</header>
+
+<nav>
+    <button onclick="showSection('home')">Beranda</button>
+    <button onclick="showSection('desa')">Profil Desa</button>
+    <button onclick="showSection('umkm')">UMKM</button>
+    <button onclick="showSection('produk')">Produk</button>
+</nav>
+
+<!-- HOME -->
+<section id="home">
+    <div class="slider">
+        <img src="assets/img/slide1.jpg" class="slide active">
+        <img src="assets/img/slide2.jpg" class="slide">
+        <img src="assets/img/slide3.jpg" class="slide">
+    </div>
+
+    <h2>Selamat Datang di SAPA Digital</h2>
+    <p>
+        SAPA Digital merupakan platform promosi UMKM Desa Wiyu yang bertujuan
+        mendukung pemberdayaan ekonomi masyarakat melalui pemanfaatan teknologi digital.
+    </p>
+
+    <div class="kkn-profile">
+        <img src="assets/img/kelompok.jpg" alt="Kelompok KKN Desa Wiyu">
+
+        <div class="kkn-text">
+            <h3>Kelompok KKN-BBK 7 Desa Wiyu 2025</h3>
+            <p>
+                Kelompok KKN Desa Wiyu merupakan mahasiswa yang melaksanakan
+                program pengabdian masyarakat dengan fokus pada pemberdayaan
+                UMKM melalui digitalisasi, khususnya melalui program SAPA Digital
+                sebagai media promosi dan pendampingan UMKM desa.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- PROFIL DESA -->
+<section id="desa">
+    <h2>Profil Desa Wiyu</h2>
+    <p>
+        Desa Wiyu merupakan desa yang memiliki potensi ekonomi lokal,
+        khususnya pada sektor UMKM yang dikelola oleh masyarakat setempat.
+    </p>
+
+    <iframe 
+        src="https://www.google.com/maps?q=Desa%20Wiyu&output=embed"
+        width="100%" height="300" style="border:0;" allowfullscreen>
+    </iframe>
+</section>
+
+<!-- UMKM -->
+<section id="umkm">
+    <h2>Profil UMKM Desa Wiyu</h2>
+    <ul>
+        <li>UMKM Kuliner (makanan & minuman)</li>
+        <li>UMKM Kerajinan Tangan</li>
+        <li>UMKM Olahan Hasil Pertanian</li>
+    </ul>
+</section>
+
+<!-- PRODUK -->
+<section id="produk">
+    <h2>Produk UMKM Desa Wiyu</h2>
+
+    <div class="produk-container">
+        <div class="produk-card">
+            <img src="assets/img/produk1.jpg">
+            <h3>Kue Kering</h3>
+            <p>UMKM Makmur Jaya</p>
+            <p>Rp15.000</p>
+            <a href="https://wa.me/6281234567890" target="_blank">Hubungi UMKM</a>
+        </div>
+
+        <div class="produk-card">
+            <img src="assets/img/produk2.jpg">
+            <h3>Keripik Singkong</h3>
+            <p>UMKM Sehat Alami</p>
+            <p>Rp10.000</p>
+            <a href="https://wa.me/6289876543210" target="_blank">Hubungi UMKM</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 SAPA Digital – Desa Wiyu</p>
+</footer>
+
+<!-- JS -->
+<script src="assets/js/script.js"></script>
+</body>
+</html>

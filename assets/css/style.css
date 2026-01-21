@@ -24,27 +24,71 @@ body {
 
 /* HEADER */
 header {
-    background: linear-gradient(135deg, #2f7d6d, #4fb3a2);
+    position: relative;
+    background: linear-gradient(135deg, #2f7d6d, #4fb3a2); /* fallback */
+    /* Use the mountain image (slide1.jpeg) */
+    background-image: url("../img/bg.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     color: white;
-    padding: 50px 20px;
+    padding: 80px 20px;
     text-align: center;
+    min-height: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* subtle parallax on larger screens */
+    background-attachment: fixed;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* stronger overlay + slight blur for readability */
+    background: linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.65));
+    backdrop-filter: blur(2px);
+    z-index: 0;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* soft vignette to focus center */
+    background: radial-gradient(closest-side, rgba(0,0,0,0) 45%, rgba(0,0,0,0.35) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+header h1,
+header p {
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 4px 18px rgba(0,0,0,0.6);
 }
 
 header h1 {
-    font-size: 40px;
+    font-size: 56px;
     font-weight: 700;
+    color: #fff;
 }
 
 header p {
     margin-top: 10px;
     font-weight: 300;
     font-size: 16px;
+    color: #f7f7f7;
 }
 
 /* NAVBAR */
 nav {
     background: white;
-    padding: 15px;
+    padding: 20px;
     text-align: center;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     position: sticky;
@@ -57,7 +101,7 @@ nav button {
     border: none;
     margin: 0 8px;
     padding: 10px 18px;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: 600;
     cursor: pointer;
     color: var(--primary);
@@ -119,6 +163,39 @@ ul {
 ul li {
     margin-bottom: 8px;
     color: var(--muted);
+}
+
+/* KKN PROFILE */
+.kkn-profile {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.kkn-profile img {
+    width: 400px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 16px;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.kkn-text {
+    flex: 1;
+}
+
+.kkn-text h3 {
+    color: var(--primary);
+    margin-bottom: 12px;
+    font-size: 20px;
+}
+
+.kkn-text p {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.8;
 }
 
 /* PRODUK */
@@ -186,26 +263,325 @@ iframe {
 /* FOOTER */
 footer {
     margin-top: 60px;
-    padding: 25px;
-    text-align: center;
-    background: white;
-    color: #777;
+    padding: 0;
+    color: #fff;
+    font-size: 14px;
+    background-image: url("../img/slide1.jpeg");
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.65), rgba(0,0,0,0.6));
+    z-index: 0;
+}
+
+.footer-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 40px;
+    align-items: flex-start;
+}
+
+/* LEFT */
+.footer-left {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.logo-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 90px;
+}
+
+.footer-logo {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+}
+
+.footer-left-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 18px;
+    border-left: 1px solid rgba(255,255,255,0.15);
+}
+
+.footer-left-text h4 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.footer-left-text p {
+    margin: 0;
+    font-size: 14px;
+    color: rgba(255,255,255,0.95);
+    line-height: 1.6;
+    max-width: 360px;
+}
+
+/* RIGHT */
+.footer-right {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-right h4 {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+
+.footer-right p {
+    font-size: 14px;
+    margin: 0;
+    color: rgba(255,255,255,0.95);
+}
+
+/* SPONSOR */
+.footer-sponsor {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 6px;
+}
+
+.unair-logo {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+}
+
+.sponsor-text {
     font-size: 13px;
+    line-height: 1.2;
+    color: rgba(255,255,255,0.95);
+}
+
+.sponsor-text strong {
+    display: block;
+    font-weight: 700;
+}
+
+.sponsor-text span {
+    font-size: 12px;
+    color: rgba(255,255,255,0.85);
+}
+
+/* BOTTOM */
+/* CENTER */
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer-center h4 {
+    font-size: 16px;
+    margin-bottom: 6px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.footer-center nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.footer-center nav ul li a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    transition: 0.3s ease;
+    font-size: 14px;
+}
+
+.footer-center nav ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* SOCIALS */
+.socials {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+    color: #fff;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    background: rgba(255,255,255,0.3);
+    color: #fff;
+}
+
+/* CONTACT LINKS */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+}
+
+.footer-link {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    transition: 0.3s ease;
+    font-size: 14px;
+    display: inline-block;
+}
+
+.footer-link:hover {
+    color: #fff;
+}
+
+/* QUICK CONTACT */
+.quick-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.quick-contact a {
+    display: inline-block;
+    padding: 10px 16px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s ease;
+    text-align: center;
+    width: fit-content;
+}
+
+.quick-contact a:hover {
+    background: #256b5e;
+}
+
+/* BACK TO TOP */
+.back-to-top {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--primary);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.back-to-top:hover {
+    background: #256b5e;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    padding: 20px;
+    text-align: center;
+    background: rgba(0,0,0,0.15);
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer-bottom p {
+    margin: 0;
+    letter-spacing: 0.3px;
+    color: #fff;
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 30px;
+@media (max-width: 900px) {
+    .kkn-profile {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
     }
 
-    section {
-        padding: 25px;
-        margin: 20px;
+    .kkn-profile img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
     }
 
-    nav button {
-        padding: 8px 12px;
-        font-size: 13px;
+    .kkn-text {
+        text-align: left;
+    }
+
+    .footer-inner {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 30px 20px;
+        gap: 30px;
+    }
+
+    .footer-left {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .footer-left-text {
+        padding-left: 0;
+        border-left: none;
+    }
+
+    .footer-sponsor {
+        justify-content: center;
+    }
+
+    .footer-center nav ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .socials {
+        justify-content: center;
     }
 }
+
+
